@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#test
-
 set -ex
 
 if ! command -v apk; then
@@ -82,6 +80,7 @@ wget -O squashfs-tools.tar.gz https://github.com/plougher/squashfs-tools/archive
 tar xf squashfs-tools.tar.gz
 cd squashfs-tools-*/squashfs-tools
 sed -i -e 's|#ZSTD_SUPPORT = 1|ZSTD_SUPPORT = 1|g' Makefile
+sed -i -e 's|#LZ4_SUPPORT = 1|LZ4_SUPPORT = 1|g' Makefile
 make -j$(nproc) LDFLAGS=-static
 file mksquashfs unsquashfs
 strip mksquashfs unsquashfs
