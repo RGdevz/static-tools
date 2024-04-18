@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#test
+
 set -ex
 
 if ! command -v apk; then
